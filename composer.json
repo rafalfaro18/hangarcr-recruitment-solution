@@ -1,0 +1,13 @@
+{
+    "name": "rafalfaro18/hangarcr-recruitment-solution",
+    "description": "Solution to https://github.com/hangarcr/recruitment",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rafael Alfaro",
+            "email": "rafalfaro_18@outlook.com"
+        }
+    ],
+    "require": {}
+}
