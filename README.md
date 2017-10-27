@@ -1,5 +1,11 @@
 - Url of the project is http://homestead.test/
 
+- Must create a database called "songs":
+
+```sql
+CREATE SCHEMA `songs` DEFAULT CHARACTER SET utf8 ;
+```
+
 - If you get error "no input file specified" make sure to map the url correctly in Homestead.yaml:
 ```yaml
 map: homestead.test
