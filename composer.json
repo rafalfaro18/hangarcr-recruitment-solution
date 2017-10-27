@@ -9,5 +9,8 @@
             "email": "rafalfaro_18@outlook.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "laravel/homestead": "^6.5"
+    }
 }
