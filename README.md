@@ -30,3 +30,20 @@ Use the following command instead:
 ```shell
 vagrant box add laravel/homestead http://atlas.hashicorp.com/laravel/boxes/homestead
 ```
+
+- Routes available:
+```txt
++--------+-----------+------------------+--------------+---------------------------------------------+--------------+
+| Domain | Method    | URI              | Name         | Action                                      | Middleware   |
++--------+-----------+------------------+--------------+---------------------------------------------+--------------+
+|        | GET|HEAD  | /                |              | Closure                                     | web          |
+|        | GET|HEAD  | api/user         |              | Closure                                     | api,auth:api |
+|        | GET|HEAD  | song             | song.index   | App\Http\Controllers\SongController@index   | web          |
+|        | POST      | song             | song.store   | App\Http\Controllers\SongController@store   | web          |
+|        | GET|HEAD  | song/create      | song.create  | App\Http\Controllers\SongController@create  | web          |
+|        | GET|HEAD  | song/{song}      | song.show    | App\Http\Controllers\SongController@show    | web          |
+|        | PUT|PATCH | song/{song}      | song.update  | App\Http\Controllers\SongController@update  | web          |
+|        | DELETE    | song/{song}      | song.destroy | App\Http\Controllers\SongController@destroy | web          |
+|        | GET|HEAD  | song/{song}/edit | song.edit    | App\Http\Controllers\SongController@edit    | web          |
++--------+-----------+------------------+--------------+---------------------------------------------+--------------+
+```
