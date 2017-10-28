@@ -35,8 +35,6 @@ vagrant box add laravel/homestead http://atlas.hashicorp.com/laravel/boxes/homes
 +-----------+------------------+--------------+---------------------------------------------+--------------+
 | Method    | URI              | Name         | Action                                      | Middleware   |
 +-----------+------------------+--------------+---------------------------------------------+--------------+
-| GET|HEAD  | /                |              | Closure                                     | web          |
-| GET|HEAD  | api/user         |              | Closure                                     | api,auth:api |
 | GET|HEAD  | song             | song.index   | App\Http\Controllers\SongController@index   | web          |
 | POST      | song             | song.store   | App\Http\Controllers\SongController@store   | web          |
 | GET|HEAD  | song/create      | song.create  | App\Http\Controllers\SongController@create  | web          |
