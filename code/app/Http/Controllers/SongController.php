@@ -46,7 +46,9 @@ class SongController extends Controller
      */
     public function show($id)
     {
-        //
+      $song = Song::find($id);
+
+      return $song;
     }
 
     /**
