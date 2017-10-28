@@ -14,10 +14,7 @@ class SongController extends Controller
      */
     public function index()
     {
-        $songs=Song::all();
-        foreach ($songs as $song) {
-          echo $song->songname;
-        }
+        return Song::all();
     }
 
     /**
