@@ -74,7 +74,7 @@ class SongController extends Controller
      */
     public function show($id)
     {
-      $song = Song::find($id);
+      $song = Song::findOrFail($id);
 
       return $song;
     }
