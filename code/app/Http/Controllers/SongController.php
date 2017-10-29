@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Eloquent;
 use Illuminate\Http\Request;
 use App\Song;
 
@@ -35,7 +36,9 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump($request->all());
+        Eloquent::unguard();
+        Song::create($request->all());
+        return ['created' => true];
     }
 
     /**
