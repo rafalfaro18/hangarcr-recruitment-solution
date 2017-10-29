@@ -44,3 +44,8 @@ vagrant box add laravel/homestead http://atlas.hashicorp.com/laravel/boxes/homes
 | GET|HEAD  | song/{song}/edit | song.edit    | App\Http\Controllers\SongController@edit    | web          |
 +-----------+------------------+--------------+---------------------------------------------+--------------+
 ```
+
+- Test can be run running:
+```shell
+vendor/bin/phpunit --group song
+```
