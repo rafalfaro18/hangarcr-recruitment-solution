@@ -17,8 +17,8 @@ class SongTest extends TestCase
             ->seeJsonEquals(['created' => true]);
 
         $data = $this->getData(['songname' => 'jane']);
-        // Update the song just created (id = 1)
-        $this->put('/song/1', $data)
+        // Update the song just created (id = 1234567890)
+        $this->put('/song/1234567890', $data)
             ->seeJsonEquals(['updated' => true]);
 
         // Obtain data of modified song
