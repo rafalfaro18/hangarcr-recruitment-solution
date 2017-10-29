@@ -99,7 +99,7 @@ class SongController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $song = Song::find($id);
+        $song = Song::findOrFail($id);
         $song->update($request->all());
         return ['updated' => true];
     }
@@ -112,7 +112,7 @@ class SongController extends Controller
      */
     public function destroy($id)
     {
-      $song = Song::find($id);
+      $song = Song::findOrFail($id);
       $song->delete();
       return ['deleted' => true];
     }
