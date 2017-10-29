@@ -12,20 +12,20 @@ class SongTest extends TestCase
     public function testSongCreate()
     {
         $data = $this->getData();
-        // Creamos un nuevo usuario y verificamos la respuesta
+        // Create a new song and verify response
         $this->post('/song', $data)
             ->seeJsonEquals(['created' => true]);
 
         $data = $this->getData(['songname' => 'jane']);
-        // Actualizamos al usuario recien creado (id = 1)
+        // Update the song just created (id = 1)
         $this->put('/song/1', $data)
             ->seeJsonEquals(['updated' => true]);
 
-        // Obtenemos los datos de dicho usuario modificado
-        // y verificamos que el nombre sea el correcto
+        // Obtain data of modified song
+        // verify the correct name
         $this->get('song/1')->seeJson(['songname' => 'jane']);
 
-        // Eliminamos al usuario
+        // Delete the song
         $this->delete('song/1234567890')->seeJson(['deleted' => true]);
     }
 
