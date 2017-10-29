@@ -35,6 +35,25 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
+        // Create validation rules
+        $rules = [
+            'id' => 'required',
+            'songname'      => 'required',
+            'url'     => 'required',
+            'artistid'  => 'required',
+            'artistname' => 'required',
+            'albumid' => 'required',
+            'albumname' => 'required'
+            ];
+
+        // Execute validator, in case of failing return response
+        $validator = \Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
+            return [
+                'created' => false,
+                'errors'  => $validator->errors()->all()
+            ];
+        }
         Song::create($request->all());
         return ['created' => true];
     }
