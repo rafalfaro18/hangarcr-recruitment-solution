@@ -35,6 +35,9 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
+        if (!is_array($request->all())) {
+            return ['error' => 'request must be an array'];
+        }
         // Create validation rules
         $rules = [
             'id' => 'required|integer|unique:songs',
