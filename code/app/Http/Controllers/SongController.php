@@ -72,7 +72,9 @@ class SongController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $song = Song::find($id);
+        $song->update($request->all());
+        return ['updated' => true];
     }
 
     /**
