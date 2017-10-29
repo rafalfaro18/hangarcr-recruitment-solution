@@ -11,6 +11,7 @@ class SongTest extends TestCase
     /**
      * A basic test example.
      *
+     * @group song
      * @return void
      */
     public function testExample()
