@@ -13,4 +13,5 @@ class Song extends Model
    */
   protected $table = 'songs';
   public $timestamps = false;
+  protected $fillable = ['id', 'url', 'songname', 'artistid', 'artistname', 'albumid', 'albumname'];
 }
