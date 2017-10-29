@@ -40,25 +40,30 @@ class SongController extends Controller
         }
         // Create validation rules
         $rules = [
-            'id' => 'required|integer|unique:songs',
-            'songname'      => 'required',
-            'url'     => 'required|unique:songs',
-            'artistid'  => 'required|integer',
-            'artistname' => 'required',
-            'albumid' => 'required|integer',
-            'albumname' => 'required'
-            ];
+          'id' => 'required|integer|unique:songs',
+          'songname'      => 'required',
+          'url'     => 'required|unique:songs',
+          'artistid'  => 'required|integer',
+          'artistname' => 'required',
+          'albumid' => 'required|integer',
+          'albumname' => 'required'
+        ];
 
-        // Execute validator, in case of failing return response
-        $validator = \Validator::make($request->all(), $rules);
-        if ($validator->fails()) {
-            return [
-                'created' => false,
-                'errors'  => $validator->errors()->all()
-            ];
+        try{
+          // Execute validator, in case of failing return response
+          $validator = \Validator::make($request->all(), $rules);
+          if ($validator->fails()) {
+              return [
+                  'created' => false,
+                  'errors'  => $validator->errors()->all()
+              ];
+          }
+          Song::create($request->all());
+          return ['created' => true];
+        } catch (Exception $e) {
+          \Log::info('Error creating song: '.$e);
+          return \Response::json(['created' => false], 500);
         }
-        Song::create($request->all());
-        return ['created' => true];
     }
 
     /**
