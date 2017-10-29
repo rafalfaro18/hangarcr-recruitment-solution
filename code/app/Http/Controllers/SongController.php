@@ -37,12 +37,12 @@ class SongController extends Controller
     {
         // Create validation rules
         $rules = [
-            'id' => 'required|unique:songs',
+            'id' => 'required|integer|unique:songs',
             'songname'      => 'required',
             'url'     => 'required|unique:songs',
-            'artistid'  => 'required',
+            'artistid'  => 'required|integer',
             'artistname' => 'required',
-            'albumid' => 'required',
+            'albumid' => 'required|integer',
             'albumname' => 'required'
             ];
 
