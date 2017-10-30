@@ -41,12 +41,31 @@ vagrant up
 
 5. In your device hosts file map homestead.test to point to the ip address 192.168.10.10
 
+6. cd into "code" sub-directory and run:
 
-Notes:
+```shell
+composer install
+```
 
-- Url of the project is <http://homestead.test/song>
+7. while at root directory, ssh to vagrant box:
 
-- Must create a table called "songs" and add data:
+```shell
+vagrant ssh
+```
+
+8. while sshing vagrant box cd into /vagrant/code and run:
+
+```shell
+cp .env.example .env
+```
+
+9. Fix the error "No application encryption key has been specified" while sshing at /vagrant/code run:
+
+```shell
+php artisan key:generate
+```
+
+10. Must create a table called "songs" and add data:
 
 ```sql
 CREATE TABLE `songs` (
@@ -63,6 +82,10 @@ CREATE TABLE `songs` (
 INSERT INTO `homestead`.`songs` (`id`, `url`, `songname`, `artistid`, `artistname`, `albumid`, `albumname`) VALUES ('25479197', 'spotify:album:3qfz9wig4gcrb4bimw9ov7', 'johnny b. goode', '45', 'chuck berry', '235469', 'roll over beethoven');
 INSERT INTO `homestead`.`songs` (`id`, `url`, `songname`, `artistid`, `artistname`, `albumid`, `albumname`) VALUES ('8815585', 'spotify:track:7linrtr5px7i3r96mducjw', 'moonlight sonata', '1833', 'beethoven', '5619520', 'beethoven piano sonatas');
 ```
+
+Notes:
+
+- Url of the project is <http://homestead.test/song>
 
 - If you get error "no input file specified" make sure to map the url correctly in Homestead.yaml:
 
