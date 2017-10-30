@@ -39,6 +39,9 @@ to: /home/vagrant/code/code/public
 vagrant up
 ```
 
+5. In your device hosts file map homestead.test to point to the ip address 192.168.10.10
+
+
 - Url of the project is <http://homestead.test/song>
 
 - Must create a table called "songs" and add data:
