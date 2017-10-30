@@ -16,22 +16,23 @@ class SongTest extends TestCase
      */
     public function testExample()
     {
-      $data = $this->getData();
-      // Create a new song and verify response
-      $this->post('/song', $data)
+        $data = $this->getData();
+        // Create a new song and verify response
+        $this->post('/song', $data)
           ->assertJson(['created' => true]);
 
-      $data = $this->getData(['songname' => 'jane']);
-      // Update the song just created (id = 9999)
-      $this->put('/song/9999', $data)
+        $data = $this->getData(['songname' => 'jane']);
+        // Update the song just created (id = 9999)
+        $this->put('/song/9999', $data)
           ->assertJson(['updated' => true]);
 
-      // Obtain data of modified song
-      // verify the correct name
-      $this->get('song/9999')->assertJson(['songname' => 'jane']);
+        // Obtain data of modified song
+        // verify the correct name
+        $this->get('song/9999')->assertJson(['songname' => 'jane']);
 
-      // Delete the song
-      $this->delete('song/9999')->assertJson(['deleted' => true]);;
+        // Delete the song
+        $this->delete('song/9999')->assertJson(['deleted' => true]);
+        ;
     }
 
     public function getData($custom = array())
