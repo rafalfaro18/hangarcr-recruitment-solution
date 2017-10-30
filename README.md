@@ -47,7 +47,7 @@ INSERT INTO `homestead`.`songs` (`id`, `url`, `songname`, `artistid`, `artistnam
   +-----------+------------------+--------------+---------------------------------------------+--------------+
   ```
 
-- Test can be run running:
+- Test can be run while inside "code" folder:
 
   ```shell
   vendor/bin/phpunit --group song
