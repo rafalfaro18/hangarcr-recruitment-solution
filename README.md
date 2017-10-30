@@ -6,6 +6,12 @@ Instructions:
 composer install
 ```
 
+1. Run the following command while at the root directory:
+
+```shell
+vagrant up
+```
+
 - Url of the project is <http://homestead.test/song>
 
 - Must create a table called "songs" and add data:
