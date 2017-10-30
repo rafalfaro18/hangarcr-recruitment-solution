@@ -99,6 +99,9 @@ class SongController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!is_array($request->all())) {
+            return ['error' => 'request must be an array'];
+        }
         $song = Song::findOrFail($id);
         $song->update($request->all());
         return ['updated' => true];
