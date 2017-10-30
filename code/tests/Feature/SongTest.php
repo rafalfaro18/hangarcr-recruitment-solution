@@ -32,7 +32,6 @@ class SongTest extends TestCase
 
         // Delete the song
         $this->delete('song/9999')->assertJson(['deleted' => true]);
-        ;
     }
 
     public function getData($custom = array())
