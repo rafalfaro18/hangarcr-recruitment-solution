@@ -1,3 +1,11 @@
+Instructions:
+
+1. Clone the repo and run while at the root directory:
+
+```shell
+composer install
+```
+
 - Url of the project is <http://homestead.test/song>
 
 - Must create a table called "songs" and add data:
