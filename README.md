@@ -1,4 +1,4 @@
-- Url of the project is <http://homestead.test/>
+- Url of the project is <http://homestead.test/song>
 
 - Must create a table called "songs" and add data:
 
