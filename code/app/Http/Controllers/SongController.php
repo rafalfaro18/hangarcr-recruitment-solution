@@ -102,6 +102,27 @@ class SongController extends Controller
         if (!is_array($request->all())) {
             return ['error' => 'request must be an array'];
         }
+
+        // Create validation rules
+        $rules = [
+          'artistid'  => 'integer',
+          'albumid' => 'integer',
+        ];
+
+        $rules2 = [
+          'id' => 'required|integer',
+        ];
+
+        // Execute validator, in case of failing return response
+        $validator = \Validator::make($request->all(), $rules);
+        $validator2 = \Validator::make(['id' => $id], $rules2);
+        if ($validator->fails()||$validator2->fails()) {
+            return [
+              'updated' => false,
+              'errors'  => array_merge($validator->errors()->all(), $validator2->errors()->all())
+          ];
+        }
+
         $song = Song::findOrFail($id);
         $song->update($request->all());
         return ['updated' => true];
