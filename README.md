@@ -20,7 +20,20 @@ Windows:
 vendor\\bin\\homestead make
 ```
 
-3. Run the following command while at the root directory:
+3. In Homestead.yaml inside the sites property change:
+
+```yaml
+to: /home/vagrant/code/public
+```
+
+to:
+
+```yaml
+to: /home/vagrant/code/code/public
+```
+
+
+4. Run the following command while at the root directory:
 
 ```shell
 vagrant up
