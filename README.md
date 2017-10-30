@@ -6,7 +6,7 @@ Instructions:
 composer install
 ```
 
-1. Run the following command while at the root directory:
+2. Run the following command while at the root directory:
 
 ```shell
 vagrant up
