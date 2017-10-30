@@ -115,6 +115,17 @@ class SongController extends Controller
      */
     public function destroy($id)
     {
+        $rules = [
+          'id' => 'required|integer',
+        ];
+        // Execute validator, in case of failing return response
+        $validator = \Validator::make(['id' => $id], $rules);
+        if ($validator->fails()) {
+            return [
+              'deleted' => false,
+              'errors'  => $validator->errors()->all()
+          ];
+        }
         $song = Song::findOrFail($id);
         $song->delete();
         return ['deleted' => true];
