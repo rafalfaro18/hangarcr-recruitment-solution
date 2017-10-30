@@ -1,4 +1,4 @@
-- Url of the project is http://homestead.test/
+- Url of the project is <http://homestead.test/>
 
 - Must create a table called "songs" and add data:
 
@@ -19,33 +19,36 @@ INSERT INTO `homestead`.`songs` (`id`, `url`, `songname`, `artistid`, `artistnam
 ```
 
 - If you get error "no input file specified" make sure to map the url correctly in Homestead.yaml:
-```yaml
-map: homestead.test
-to: /home/vagrant/code/code/public
-```
 
-- If you get error "OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054" while executing vagrant up:
-Use the following command instead:
-```shell
-vagrant box add laravel/homestead http://atlas.hashicorp.com/laravel/boxes/homestead
-```
+  ```yaml
+  map: homestead.test
+  to: /home/vagrant/code/code/public
+  ```
+
+- If you get error "OpenSSL SSL_read: SSL_ERROR_SYSCALL, errno 10054" while executing vagrant up: Use the following command instead:
+
+  ```shell
+  vagrant box add laravel/homestead http://atlas.hashicorp.com/laravel/boxes/homestead
+  ```
 
 - Routes available:
-```txt
-+-----------+------------------+--------------+---------------------------------------------+--------------+
-| Method    | URI              | Name         | Action                                      | Middleware   |
-+-----------+------------------+--------------+---------------------------------------------+--------------+
-| GET|HEAD  | song             | song.index   | App\Http\Controllers\SongController@index   | web          |
-| POST      | song             | song.store   | App\Http\Controllers\SongController@store   | web          |
-| GET|HEAD  | song/create      | song.create  | App\Http\Controllers\SongController@create  | web          |
-| GET|HEAD  | song/{song}      | song.show    | App\Http\Controllers\SongController@show    | web          |
-| PUT|PATCH | song/{song}      | song.update  | App\Http\Controllers\SongController@update  | web          |
-| DELETE    | song/{song}      | song.destroy | App\Http\Controllers\SongController@destroy | web          |
-| GET|HEAD  | song/{song}/edit | song.edit    | App\Http\Controllers\SongController@edit    | web          |
-+-----------+------------------+--------------+---------------------------------------------+--------------+
-```
+
+  ```txt
+  +-----------+------------------+--------------+---------------------------------------------+--------------+
+  | Method    | URI              | Name         | Action                                      | Middleware   |
+  +-----------+------------------+--------------+---------------------------------------------+--------------+
+  | GET|HEAD  | song             | song.index   | App\Http\Controllers\SongController@index   | web          |
+  | POST      | song             | song.store   | App\Http\Controllers\SongController@store   | web          |
+  | GET|HEAD  | song/create      | song.create  | App\Http\Controllers\SongController@create  | web          |
+  | GET|HEAD  | song/{song}      | song.show    | App\Http\Controllers\SongController@show    | web          |
+  | PUT|PATCH | song/{song}      | song.update  | App\Http\Controllers\SongController@update  | web          |
+  | DELETE    | song/{song}      | song.destroy | App\Http\Controllers\SongController@destroy | web          |
+  | GET|HEAD  | song/{song}/edit | song.edit    | App\Http\Controllers\SongController@edit    | web          |
+  +-----------+------------------+--------------+---------------------------------------------+--------------+
+  ```
 
 - Test can be run running:
-```shell
-vendor/bin/phpunit --group song
-```
+
+  ```shell
+  vendor/bin/phpunit --group song
+  ```
