@@ -14,4 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('song','SongController');
+Route::resource('song', 'SongController');
