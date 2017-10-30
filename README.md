@@ -8,6 +8,20 @@ composer install
 
 2. Run the following command while at the root directory:
 
+Mac / Linux:
+
+```shell
+php vendor/bin/homestead make
+```
+
+Windows:
+
+```shell
+vendor\\bin\\homestead make
+```
+
+3. Run the following command while at the root directory:
+
 ```shell
 vagrant up
 ```
