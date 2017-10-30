@@ -65,7 +65,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-10. Must create a table called "songs" and add data:
+10. Must create a table called "songs" inside homestead schema and add data:
 
 ```sql
 CREATE TABLE `songs` (
