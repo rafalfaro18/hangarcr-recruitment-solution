@@ -49,20 +49,20 @@ class SongController extends Controller
           'albumname' => 'required'
         ];
 
-        try{
-          // Execute validator, in case of failing return response
-          $validator = \Validator::make($request->all(), $rules);
-          if ($validator->fails()) {
-              return [
+        try {
+            // Execute validator, in case of failing return response
+            $validator = \Validator::make($request->all(), $rules);
+            if ($validator->fails()) {
+                return [
                   'created' => false,
                   'errors'  => $validator->errors()->all()
               ];
-          }
-          Song::create($request->all());
-          return ['created' => true];
+            }
+            Song::create($request->all());
+            return ['created' => true];
         } catch (Exception $e) {
-          \Log::info('Error creating song: '.$e);
-          return \Response::json(['created' => false], 500);
+            \Log::info('Error creating song: '.$e);
+            return \Response::json(['created' => false], 500);
         }
     }
 
@@ -74,9 +74,9 @@ class SongController extends Controller
      */
     public function show($id)
     {
-      $song = Song::findOrFail($id);
+        $song = Song::findOrFail($id);
 
-      return $song;
+        return $song;
     }
 
     /**
@@ -112,8 +112,8 @@ class SongController extends Controller
      */
     public function destroy($id)
     {
-      $song = Song::findOrFail($id);
-      $song->delete();
-      return ['deleted' => true];
+        $song = Song::findOrFail($id);
+        $song->delete();
+        return ['deleted' => true];
     }
 }
